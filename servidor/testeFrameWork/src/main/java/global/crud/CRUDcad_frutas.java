@@ -21,7 +21,7 @@ private Conexao conexao;
 	public LinkedList<Fruta> getFrutas() {
 		
 		LinkedList<Fruta> lista = new LinkedList<Fruta>();
-				
+		// teste		
 		try {
 
 			String sql =	"SELECT f.idfruta, \r\n" +

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>testeFrameWork</display-name>
+  <servlet>
+    <servlet-name>testeFrameWork</servlet-name>
+    <servlet-class>server.Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>testeFrameWork</servlet-name>
+    <url-pattern>/testeFrameWork</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ServletTeste</servlet-name>
+    <servlet-class>testes.ServletTeste</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletTeste</servlet-name>
+    <url-pattern>/ServletTeste</url-pattern>
+  </servlet-mapping>
+  
+   <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  
+</web-app>

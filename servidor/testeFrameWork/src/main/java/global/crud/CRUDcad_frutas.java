@@ -35,14 +35,14 @@ private Conexao conexao;
 			ResultSet rs = conexao.executaQuery(pst);
 
 			while (rs.next()) {
-				Fruta fruta1 = new Fruta();
-				fruta1.setIdfruta(rs.getInt("idfruta"));
-				fruta1.setNome(rs.getString("nome"));
-				fruta1.setPreco(rs.getDouble("preco"));
-				fruta1.setImagem(rs.getString("imagem"));
+				Fruta fruta = new Fruta();
+				fruta.setIdfruta(rs.getInt("idfruta"));
+				fruta.setNome(rs.getString("nome"));
+				fruta.setPreco(rs.getDouble("preco"));
+				fruta.setImagem(rs.getString("imagem"));
 				
 				
-				lista.add(fruta1);							
+				lista.add(fruta);							
 			}
 			
 			return lista;

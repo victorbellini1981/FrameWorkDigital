@@ -1,3 +1,4 @@
+import 'package:appframework/src/models/Frutas.dart';
 import 'package:appframework/src/public/globals.dart';
 import 'package:appframework/src/views/login.dart';
 import 'package:flutter/material.dart';
@@ -78,7 +79,10 @@ class _InicialState extends State<Inicial> {
                           alignment: Alignment.center,
                           child: Text(
                               'R\$ ' +
-                                  listaFrutas[index].preco.toStringAsFixed(2),
+                                  listaFrutas[index]
+                                      .preco
+                                      .toStringAsFixed(2)
+                                      .replaceAll('.', ','),
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 color: Color(0xff472c24),
@@ -103,7 +107,13 @@ class _InicialState extends State<Inicial> {
                                       fontSize: 10),
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                var fruta = new Frutas();
+                                fruta.nome = listaFrutas[index].nome;
+                                fruta.imagem = listaFrutas[index].imagem;
+                                fruta.preco = listaFrutas[index].preco;
+                                carrinho.add(fruta);
+                              },
                             ))
                       ],
                     ),
@@ -145,6 +155,29 @@ class _InicialState extends State<Inicial> {
                   padding: EdgeInsets.only(left: 10, right: 10),
                   child: listadefrutas,
                 ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 2, color: Colors.orange)),
+                  child: IconButton(
+                    iconSize: 60,
+                    icon: Image.asset('assets/images/botaocarrinho.png'),
+                    onPressed: () {
+                      if (carrinho.length == 0) {
+                        // ignore: deprecated_member_use
+                        _scaffoldKey.currentState.showSnackBar(SnackBar(
+                          content: Text('Seu carrinho está vazio!'),
+                          duration: Duration(seconds: 2),
+                        ));
+                      } else {}
+                    },
+                  ),
+                )
               ],
             ),
           ),

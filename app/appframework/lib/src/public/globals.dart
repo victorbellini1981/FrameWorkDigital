@@ -8,3 +8,8 @@ ConfigApp configApp = ConfigApp("appframework", "testeFrameWork", false, true);
 List listaFrutas = new List();
 // ignore: deprecated_member_use
 List carrinho = new List();
+// ignore: deprecated_member_use
+List frutas = new List();
+// ignore: deprecated_member_use
+List precos = new List();
+var total = 0.0;

@@ -1,5 +1,6 @@
 import 'package:appframework/src/models/Frutas.dart';
 import 'package:appframework/src/public/globals.dart';
+import 'package:appframework/src/views/carrinho.dart';
 import 'package:appframework/src/views/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -113,6 +114,12 @@ class _InicialState extends State<Inicial> {
                                 fruta.imagem = listaFrutas[index].imagem;
                                 fruta.preco = listaFrutas[index].preco;
                                 carrinho.add(fruta);
+                                // ignore: deprecated_member_use
+                                _scaffoldKey.currentState.showSnackBar(SnackBar(
+                                  content:
+                                      Text('Produto adicionado ao carrinho!'),
+                                  duration: Duration(seconds: 2),
+                                ));
                               },
                             ))
                       ],
@@ -174,7 +181,12 @@ class _InicialState extends State<Inicial> {
                           content: Text('Seu carrinho está vazio!'),
                           duration: Duration(seconds: 2),
                         ));
-                      } else {}
+                      } else {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Carrinho()));
+                      }
                     },
                   ),
                 )

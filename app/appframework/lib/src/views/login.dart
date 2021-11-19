@@ -212,7 +212,6 @@ class _LoginState extends State<Login> {
                   width: 200,
                   height: 200,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
                       border: Border.all(
                         width: 5,
                         color: Colors.orange,

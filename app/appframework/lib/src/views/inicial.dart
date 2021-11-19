@@ -30,7 +30,7 @@ class _InicialState extends State<Inicial> {
             child: GridView.count(
                 controller: _controllerProd,
                 crossAxisCount: 2,
-                childAspectRatio: (240 / 500),
+                childAspectRatio: (300 / 550),
                 children: List.generate(listaFrutas.length, (index) {
                   return Container(
                     height: MediaQuery.of(context).size.height * 0.7,
@@ -86,7 +86,7 @@ class _InicialState extends State<Inicial> {
                               )),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
                         Container(
                             width: 100,

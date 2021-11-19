@@ -212,17 +212,15 @@ class _LoginState extends State<Login> {
                   width: 200,
                   height: 200,
                   decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 5,
-                        color: Colors.orange,
-                      ),
                       image: DecorationImage(
                           fit: BoxFit.cover,
                           image: AssetImage(
                             'assets/images/logo.jpeg',
                           ))),
                 ),
-                SizedBox(height: 10),
+                SizedBox(
+                  height: 10,
+                ),
                 login,
                 SizedBox(height: 10),
                 senha,

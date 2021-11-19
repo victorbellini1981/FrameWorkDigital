@@ -11,5 +11,4 @@ List carrinho = new List();
 // ignore: deprecated_member_use
 List frutas = new List();
 // ignore: deprecated_member_use
-List precos = new List();
 var total = 0.0;

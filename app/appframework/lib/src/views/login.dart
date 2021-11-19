@@ -20,6 +20,8 @@ class _LoginState extends State<Login> {
   @override
   void initState() {
     super.initState();
+    txtlogin.text = "usuariofixo";
+    txtsenha.text = "123";
     getUrlServidor().then((value) {
       lista();
     });

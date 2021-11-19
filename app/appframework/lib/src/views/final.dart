@@ -57,7 +57,7 @@ class _FinalState extends State<Final> {
 
   pw.Widget _contentFrutas(pw.Context context) {
     // Define uma lista usada no cabeçalho
-    const tableHeaders = ['Descrição', 'Preço'];
+    const tableHeaders = ['Produto', 'Preço'];
 
     return pw.Table.fromTextArray(
       border: null,
@@ -72,13 +72,13 @@ class _FinalState extends State<Final> {
       },
       // Define um estilo para o cabeçalho da tabela
       headerStyle: pw.TextStyle(
-        fontSize: 10,
-        color: PdfColors.blue,
+        fontSize: 30,
+        color: PdfColors.orange,
         fontWeight: pw.FontWeight.bold,
       ),
       // Define um estilo para a célula
       cellStyle: const pw.TextStyle(
-        fontSize: 10,
+        fontSize: 30,
       ),
       // Define a decoração
       rowDecoration: pw.BoxDecoration(),
@@ -104,9 +104,38 @@ class _FinalState extends State<Final> {
     return '';
   }
 
+  pw.Widget _buildPrice(pw.Context context) {
+    return pw.Container(
+      color: PdfColors.orange,
+      height: 130,
+      child: pw.Row(
+          //crossAxisAlignment: pw.CrossAxisAlignment.center,
+          mainAxisAlignment: pw.MainAxisAlignment.end,
+          children: [
+            pw.Padding(
+                padding: pw.EdgeInsets.all(10),
+                child: pw.Column(
+                    mainAxisAlignment: pw.MainAxisAlignment.end,
+                    crossAxisAlignment: pw.CrossAxisAlignment.end,
+                    children: [
+                      pw.Padding(
+                          padding: pw.EdgeInsets.only(bottom: 0, right: 0),
+                          child: pw.Text('TOTAL',
+                              textAlign: pw.TextAlign.right,
+                              style: pw.TextStyle(
+                                  color: PdfColors.white, fontSize: 40))),
+                      pw.Text('${_formatValue(total)}',
+                          textAlign: pw.TextAlign.right,
+                          style: pw.TextStyle(
+                              color: PdfColors.white, fontSize: 40))
+                    ]))
+          ]),
+    );
+  }
+
   /// Formata o valor informado na formatação pt/BR
   String _formatValue(double value) {
-    final NumberFormat numberFormat = new NumberFormat("#,##0.00", "pt_BR");
+    final NumberFormat numberFormat = new NumberFormat("R\$ #,##0.00", "pt_BR");
     return numberFormat.format(value);
   }
 
@@ -118,6 +147,7 @@ class _FinalState extends State<Final> {
       pdf.addPage(
         pw.MultiPage(
           pageFormat: format,
+          footer: _buildPrice,
           build: (context) => _buildContent(context),
         ),
       );

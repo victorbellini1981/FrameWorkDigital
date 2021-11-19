@@ -1,3 +1,4 @@
+import 'package:appframework/src/models/Frutas.dart';
 import 'package:appframework/src/public/globals.dart';
 import 'package:appframework/src/views/final.dart';
 import 'package:appframework/src/views/inicial.dart';
@@ -142,7 +143,6 @@ class _CarrinhoState extends State<Carrinho> {
           leading: IconButton(
             onPressed: () {
               frutas = [];
-              precos = [];
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => Inicial()));
             },
@@ -181,11 +181,12 @@ class _CarrinhoState extends State<Carrinho> {
                         onPressed: () {
                           total = 0.0;
                           frutas = [];
-                          precos = [];
                           for (var i = 0; i < carrinho.length; i++) {
-                            frutas.add(carrinho[i].nome);
-                            precos.add(carrinho[i].preco);
-                            total += precos[i];
+                            Frutas fruta = new Frutas();
+                            fruta.nome = carrinho[i].nome;
+                            fruta.preco = carrinho[i].preco;
+                            frutas.add(fruta);
+                            total += carrinho[i].preco;
                           }
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) => Final()));

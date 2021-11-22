@@ -8,7 +8,7 @@ import 'dart:convert';
 
 // ignore: missing_return
 Future<String> getUrlServidor() async {
-  configApp.urlServidor = "http://10.0.0.233:8080/testeFrameWork/";
+  configApp.urlServidor = "http://192.168.0.106:8080/testeFrameWork/";
 }
 
 Future<Map<String, dynamic>> promessa(
